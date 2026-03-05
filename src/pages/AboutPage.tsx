@@ -22,7 +22,7 @@ export function AboutPage() {
           >
             <div className="aspect-[3/4] max-w-sm overflow-hidden rounded-sm bg-[var(--bg-secondary)]">
               <img
-                src="/public/me.png"
+                src="/me.png"
                 alt="Sol"
                 className="w-full h-full object-cover"
               />
@@ -54,7 +54,7 @@ export function AboutPage() {
                 I’m especially drawn to problems at the intersection of systems and user experience — where thoughtful architecture quietly determines whether users trust your product (or rage quit).
               </p>
               <p>
-                Outside of work, I'm usually climbing, skiing, dancing, traveling or chasing my next adventure. Last year I took <a href='#'>38 flights</a>.. I like staying in motion — in code and in life.
+                Outside of work, I'm usually climbing, skiing, dancing, traveling or chasing my next adventure. Last year I took <a href='https://flightlog.soljin.io/' target='_blank'>38 flights</a>.. I like staying in motion — in code and in life.
               </p>
             </motion.div>
 
@@ -92,7 +92,7 @@ export function AboutPage() {
               </a>
               <div className="flex-1" />
               <a
-                href="/resume.pdf"
+                href="/SolJinResume.pdf"
                 download
                 className="flex items-center gap-2 text-mono text-[11px] tracking-wider text-[var(--bg)] bg-[var(--accent)] px-4 py-2.5 rounded-sm hover:opacity-80 transition-opacity"
               >
@@ -188,7 +188,7 @@ export function AboutPage() {
         {/* Download CTA */}
         <motion.div {...fadeUp(0.3)} className="pt-4 pb-8 flex justify-center">
           <a
-            href="/resume.pdf"
+            href="/SolJinResume.pdf"
             download
             className="flex items-center gap-2.5 text-mono text-[11px] tracking-widest uppercase border border-[var(--border)] text-[var(--text-muted)] px-8 py-4 hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-300"
           >

@@ -42,11 +42,11 @@ export function HomePage() {
             className="text-mono text-xs tracking-[0.25em] uppercase text-white/70 mt-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
           >
             I{' '}
-  <a href="#" className="hover:underline underline-offset-4 decoration-white/40">
+  <a href="/projects" className="hover:underline underline-offset-4 decoration-white/40">
     build things
   </a>
   {' '}and{' '}
-  <a href="#" className="hover:underline underline-offset-4 decoration-white/40">
+  <a href="https://climblog.soljin.io/" className="hover:underline underline-offset-4 decoration-white/40" target='_blank'>
     climb mountains
   </a>
           </motion.p>
