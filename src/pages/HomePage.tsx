@@ -81,7 +81,7 @@ export function HomePage() {
           lately
         </motion.p>
 
-        {/* Mosaic grid — intentionally asymmetric */}
+        {/* Mosaic grid */}
         <div className="grid grid-cols-12 grid-rows-2 gap-3 h-[520px]">
           {/* Large left */}
           <motion.div

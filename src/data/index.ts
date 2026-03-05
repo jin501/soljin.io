@@ -99,33 +99,29 @@ export const skills = {
 
 // update unplash dummy photos w mine ..
 export const heroPhoto = {
-  src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=80',
+  src: 'hero.jpg',
   alt: 'Mountain landscape',
 };
 
 export const mosaicPhotos = [
   {
-    src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
-    alt: 'Mountain peak at sunrise',
+    src: 'meadow.jpg',
+    alt: 'Dolomites',
   },
   {
-    src: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?w=800&q=80',
-    alt: 'Sailing at sea',
+    src: 'thailand.jpg',
+    alt: 'Krabi',
   },
   {
-    src: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&q=80',
-    alt: 'Skiing down a slope',
+    src: 'alpine.jpg',
+    alt: 'Austria',
   },
   {
-    src: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80',
-    alt: 'Travel adventure',
+    src: 'spain.jpg',
+    alt: 'Costa Brava',
   },
   {
-    src: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80',
-    alt: 'Snow covered mountains',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1682687982501-1e58ab814714?w=800&q=80',
-    alt: 'Backpacking trail',
-  },
+    src: 'jtree.jpg',
+    alt: 'Jtree',
+  }
 ];
