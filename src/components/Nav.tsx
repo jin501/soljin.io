@@ -16,7 +16,9 @@ export function Nav() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <nav className="flex items-center justify-center px-8 py-6">
+      {/* Frosted glass bar */}
+      <div className="absolute inset-0 backdrop-blur-md bg-black/20 border-b border-white/10" />
+      <nav className="relative flex items-center justify-center px-8 py-5">
         {/* Centered links */}
         <div className="flex items-center gap-10">
           {links.map(({ to, label }) => {
@@ -26,10 +28,10 @@ export function Nav() {
                 key={to}
                 to={to}
                 className={clsx(
-                  'text-mono text-xs tracking-widest uppercase transition-colors duration-200 relative drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]',
+                  'font-mono text-xs tracking-widest uppercase transition-colors duration-200 relative',
                   active
-                    ? 'text-[var(--text)]'
-                    : 'text-[var(--text-muted)] hover:text-[var(--text)]'
+                    ? 'text-white'
+                    : 'text-white/60 hover:text-white'
                 )}
               >
                 {label}
@@ -49,7 +51,8 @@ export function Nav() {
         <button
           onClick={toggle}
           aria-label="Toggle theme"
-          className="absolute right-8 text-white/70 hover:text-white transition-colors duration-200 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]"        >
+          className="absolute right-8 text-white/60 hover:text-white transition-colors duration-200"
+        >
           <motion.div
             key={theme}
             initial={{ opacity: 0, rotate: -90, scale: 0.8 }}
@@ -60,9 +63,6 @@ export function Nav() {
           </motion.div>
         </button>
       </nav>
-
-      {/* Subtle border that fades in on scroll */}
-      <div className="h-px bg-[var(--border)] opacity-0 transition-opacity duration-300" id="nav-border" />
     </header>
   );
 }
