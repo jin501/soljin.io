@@ -48,14 +48,16 @@ export function AboutPage() {
 
             <motion.div {...fadeUp(0.3)} className="space-y-4">
               <p className="text-[var(--text)] leading-relaxed">
-                I build systems that are fast, reliable, and actually useful — which turns out to be harder than it sounds. Throughout my career, I’ve worked on internal tooling for fast-growing startups, scalable APIs, and everything from custom software for small businesses to scrappy early-stage products. I care about systems that hold up under real world pressure, not just happy-path optimism.
+                I build systems that are fast, reliable, and actually useful — which turns out to be harder than it sounds. I’ve worked on internal tooling for fast-growing startups, scalable APIs, and everything from custom software for small businesses to scrappy early-stage products.
               </p>
               <p>
-                I’m especially drawn to problems at the intersection of systems and user experience — where thoughtful architecture quietly determines whether users trust your product (or rage quit).
+                I’m especially drawn to problems at the intersection of systems and user experience — where thoughtful architecture quietly determines whether users trust your product (or rage quit). I care about systems that hold up under real world pressure, not just happy-path optimism.
               </p>
               <p>
-                Outside of work, I'm usually climbing, skiing, dancing, traveling or chasing my next adventure. Last year I took <a href='https://flightlog.soljin.io/' target='_blank'>38 flights</a>.. I like staying in motion — in code and in life.
+                Outside of work, I'm usually climbing, skiing, dancing, traveling or chasing my next adventure. Last year I took <a href='https://flightlog.soljin.io/' target='_blank' className='underline'>38 flights</a>... I like staying in motion in all aspects of my life.
               </p>
+              <p>
+                I'm a lifelong learner, always chasing the next skill — whether it's a new technology, a movement technique, or a creative craft. I love being a beginner. Certified yoga teacher, AMGA rock guide, and currently working toward my bareboat skipper license — just to name a few. Lately I've been adding ice skating, snowboarding, and music production to the mix.              </p>
             </motion.div>
 
             {/* Skills */}
@@ -86,7 +88,7 @@ export function AboutPage() {
                 className="text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors">
                 <Linkedin size={18} />
               </a>
-              <a href="mailto:hellosoljin@gmail.com"
+              <a href="mailto:hello@soljin.io"
                 className="text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors">
                 <Mail size={18} />
               </a>
