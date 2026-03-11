@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { ArrowUp } from 'lucide-react';
 import { Nav } from '@/components/Nav';
 import { HomePage } from '@/pages/HomePage';
 import { ProjectsPage } from '@/pages/ProjectsPage';
@@ -15,6 +17,39 @@ function PageWrapper({ children }: { children: React.ReactNode }) {
     >
       {children}
     </motion.div>
+  );
+}
+
+function BackToTop() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 300);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  return (
+    <AnimatePresence>
+      {visible && (
+        <motion.button
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 8 }}
+          transition={{ duration: 0.2 }}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Back to top"
+          className="fixed bottom-8 right-8 z-50 w-9 h-9 flex items-center justify-center border border-[var(--border)] bg-[var(--bg)] text-[var(--text-muted)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors duration-200 rounded-sm"
+        >
+          <motion.div
+            animate={{ y: [0, -3, 0] }}
+            transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <ArrowUp size={14} />
+          </motion.div>
+        </motion.button>
+      )}
+    </AnimatePresence>
   );
 }
 
@@ -37,6 +72,7 @@ export default function App() {
       <div className="grain">
         <Nav />
         <AnimatedRoutes />
+        <BackToTop />
       </div>
     </BrowserRouter>
   );
