@@ -7,6 +7,16 @@ import { HomePage } from '@/pages/HomePage';
 import { ProjectsPage } from '@/pages/ProjectsPage';
 import { AboutPage } from '@/pages/AboutPage';
 
+function usePageTracking() {
+  const location = useLocation();
+  useEffect(() => {
+    if (typeof (window as any).gtag !== 'function') return;
+    (window as any).gtag('event', 'page_view', {
+      page_path: location.pathname,
+    });
+  }, [location]);
+}
+
 function PageWrapper({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
@@ -55,6 +65,7 @@ function BackToTop() {
 
 function AnimatedRoutes() {
   const location = useLocation();
+  usePageTracking();
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
