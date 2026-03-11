@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Download, MapPin } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, MapPin, ArrowDown } from 'lucide-react';
 import { experiences, education, skills } from '@/data';
 
 const fadeUp = (delay = 0) => ({
@@ -8,6 +8,10 @@ const fadeUp = (delay = 0) => ({
   viewport: { once: true },
   transition: { duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] },
 });
+
+function scrollToExperience() {
+  document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+}
 
 export function AboutPage() {
   return (
@@ -40,24 +44,41 @@ export function AboutPage() {
               <h1 className="text-display text-[clamp(3rem,5vw,4.5rem)] font-light text-[var(--text)] leading-none mb-8">
                 Sol
               </h1>
-              <div className="flex items-center gap-2 text-mono text-xs text-[var(--text-muted)] mb-8">
+              <div className="flex items-center gap-2 text-mono text-xs text-[var(--text-muted)] mb-2">
                 <MapPin size={12} />
                 <span>NYC — or somewhere in the mountains</span>
               </div>
             </motion.div>
 
+            {/* Jump to experience pill */}
+            <motion.div {...fadeUp(0.35)}>
+              <button
+                onClick={scrollToExperience}
+                className="group flex items-center gap-2.5 text-mono text-[10px] tracking-widest uppercase text-[var(--text-muted)] border border-[var(--border)] px-4 py-2 rounded-sm hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-300"
+              >
+                <span>Jump to experience + résumé</span>
+                <motion.div
+                  animate={{ y: [0, 3, 0] }}
+                  transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  <ArrowDown size={11} />
+                </motion.div>
+              </button>
+            </motion.div>
+
             <motion.div {...fadeUp(0.3)} className="space-y-4">
               <p className="text-[var(--text)] leading-relaxed">
-                I build systems that are fast, reliable, and actually useful — which turns out to be harder than it sounds. I’ve worked on internal tooling for fast-growing startups, scalable APIs, and everything from custom software for small businesses to scrappy early-stage products.
+                I build systems that are fast, reliable, and actually useful — which turns out to be harder than it sounds. I've worked on internal tooling for fast-growing startups, scalable APIs, and everything from custom software for small businesses to scrappy early-stage products.
               </p>
               <p>
-                I’m especially drawn to problems at the intersection of systems and user experience — where thoughtful architecture quietly determines whether users trust your product (or rage quit). I care about systems that hold up under real world pressure, not just happy-path optimism.
+                I'm especially drawn to problems at the intersection of systems and user experience — where thoughtful architecture quietly determines whether users trust your product (or rage quit). I care about systems that hold up under real world pressure, not just happy-path optimism.
               </p>
               <p>
                 Outside of work, I'm usually climbing, skiing, dancing, traveling or chasing my next adventure. Last year I took <a href='https://flightlog.soljin.io/' target='_blank' className='underline'>38 flights</a>... I like staying in motion in all aspects of my life.
               </p>
               <p>
-                I'm a lifelong learner, always chasing the next skill — whether it's a new technology, a movement technique, or a creative craft. I love being a beginner. Certified yoga teacher, AMGA rock guide, and currently working toward my bareboat skipper license — just to name a few. Lately I've been adding ice skating, snowboarding, and music production to the mix.              </p>
+                I'm a lifelong learner, always chasing the next skill — whether it's a new technology, a movement technique, or a creative craft. I love being a beginner. Certified yoga teacher, AMGA rock guide, and currently working toward my bareboat skipper license — just to name a few. Lately I've been adding ice skating, snowboarding, and music production to the mix.
+              </p>
             </motion.div>
 
             {/* Skills */}
@@ -112,7 +133,7 @@ export function AboutPage() {
       </div>
 
       {/* ── Resume Timeline ──────────────────────────── */}
-      <section className="px-8 max-w-3xl mx-auto">
+      <section id="experience" className="px-8 max-w-3xl mx-auto scroll-mt-24">
         <motion.div {...fadeUp(0)} className="mb-12">
           <p className="text-mono text-[11px] tracking-widest uppercase text-[var(--text-muted)] mb-3">
             résumé
