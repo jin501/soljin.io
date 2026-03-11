@@ -4,25 +4,70 @@ export const projects: Project[] = [
   {
     id: '1',
     title: 'FlightLog',
-    description: 'Personal travel dashboard that visualizes 40+ flights a year. Auto-imports from Gmail, maps routes, tracks stats and carbon footprint.',
-    stack: ['TypeScript', 'D3.js', 'Next.js', 'Gmail API'],
+    description: 'Personal travel dashboard visualizing 100+ flights across 3 years. Interactive globe with flight path arcs, country heatmap calendar, and stats like hours in the air and days abroad. Data imported from Flighty CSV export.',
+    stack: ['TypeScript', 'React', 'Vite', 'Mapbox GL', 'Recharts', 'Framer Motion'],
     year: '2026',
     liveUrl: 'https://flightlog.soljin.io',
     repoUrl: 'https://github.com/jin501/flightlog',
   },
+  {
+    id: '2',
+    title: 'SendLog',
+    description: 'Climbing analytics dashboard built on Mountain Project tick data. Grade pyramid, style breakdown (sport/trad/boulder/multipitch), crag loyalty chart, hardest sends wall with personal notes, and a heatmap of climbing days. Built to eventually support multiple climbers and social features.',
+    stack: ['TypeScript', 'React', 'Vite', 'Recharts', 'Framer Motion'],
+    year: '2026',
+    liveUrl: '',
+    repoUrl: '',
+  },
+  {
+    id: '3',
+    title: 'Valist',
+    description: 'Smart packing list app for repeat travelers. Build lists once, reuse across trips, drag-and-drop to reorder, and organize by category. Auth and persistence via Supabase.',
+    stack: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind', 'dnd-kit'],
+    year: '2025',
+    liveUrl: '',
+    repoUrl: '',
+  },
+  {
+    id: '4',
+    title: 'Frequence',
+    description: 'Chrome extension that turns festival and rave setlists into Spotify playlists. Paste a setlist URL or raw text, get a ready-to-play playlist — no manual searching.',
+    stack: ['TypeScript', 'Chrome Extension API', 'Spotify API', 'React'],
+    year: '2025',
+    liveUrl: '',
+    repoUrl: '',
+  },
+  {
+    id: '5',
+    title: 'ML Trading Bot',
+    description: 'Algorithmic crypto trading system using a custom ML strategy to identify entry and exit signals. Combines technical indicators with a trained classifier to automate trade decisions. Built and backtested across multiple market conditions.',
+    stack: ['Python', 'scikit-learn', 'pandas', 'NumPy', 'TA-Lib'],
+    year: '2024',
+    liveUrl: '',
+    repoUrl: '',
+  },
+  {
+    id: '6',
+    title: 'Virtual Machine Scheduler',
+    description: 'CPU and memory resource manager for virtualized environments, built for Georgia Tech Advanced Operating Systems class. Implements dynamic vCPU pinning and balloon driver memory balancing across guest VMs using the libvirt C API on a KVM/QEMU hypervisor.',
+    stack: ['C', 'libvirt', 'KVM', 'QEMU', 'Linux'],
+    year: '2024',
+    liveUrl: '',
+    repoUrl: '',
+  },
 ];
 
 export const experiences: Experience[] = [
-  // {
-  //   company: 'Azuri',
-  //   role: 'Freelance Software Engineer (Contract) ',
-  //   period: 'November 2025 — Present',
-  //   description: [
-  //     'Sole engineer for an environmental sustainability consultancy, building out their technical infrastructure from the ground up — replacing manual Excel/email workflows with a structured database and internal tooling',
-  //     'Designing and building a client data platform (database + UI) to centralize client intake, replace manual data entry, and automate submissions to an external risk evaluation platform'
-  //   ],
-//     stack: ['TypeScript', 'React', 'Node.js', 'PostgreSQL', 'Supabase']
-  // },
+  {
+    company: 'Azuri',
+    role: 'Freelance Software Engineer (Contract) ',
+    period: 'November 2025 — Present',
+    description: [
+      'Sole engineer for an environmental sustainability consultancy, building out their technical infrastructure from the ground up — replacing manual Excel/email workflows with a structured database and internal tooling',
+      'Designing and building a client data platform (database + UI) to centralize client intake, replace manual data entry, and automate submissions to an external risk evaluation platform'
+    ],
+    stack: ['TypeScript', 'React', 'Node.js', 'PostgreSQL', 'Supabase']
+  },
   {
     company: 'MIRROR (Lululemon Studio)',
     role: 'Software Engineer',
