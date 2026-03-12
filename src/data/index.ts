@@ -16,8 +16,8 @@ export const projects: Project[] = [
     description: 'Climbing analytics dashboard built on Mountain Project tick data. Grade pyramid, style breakdown (sport/trad/boulder/multipitch), crag loyalty chart, hardest sends wall with personal notes, and a heatmap of climbing days. Built to eventually support multiple climbers and social features.',
     stack: ['TypeScript', 'React', 'Vite', 'Recharts', 'Framer Motion'],
     year: '2026',
-    liveUrl: '',
-    repoUrl: '',
+    liveUrl: 'https://sendlog.soljin.io/',
+    repoUrl: 'https://github.com/jin501/SendLog',
   },
   {
     id: '3',

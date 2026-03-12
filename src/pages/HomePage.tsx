@@ -46,7 +46,7 @@ export function HomePage() {
     build things
   </a>
   {' '}and{' '}
-  <a href="https://climblog.soljin.io/" className="hover:underline underline-offset-4 decoration-white/40" target='_blank'>
+  <a href="https://sendlog.soljin.io/" className="hover:underline underline-offset-4 decoration-white/40" target='_blank'>
     climb mountains
   </a>
           </motion.p>
