@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sol Jin — Software Engineer</title>
+<meta name="description" content="Sol Jin — software engineer and sales engineer. Full stack builds, AI systems, and customer-facing technical work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FAFAF7;
+    --ink: #16191F;
+    --muted: #5B6068;
+    --accent: #A66B1E;
+    --hairline: #E3E0D6;
+    --highlight-bg: #F6EFDF;
+  }
+
+  html[data-theme="dark"] {
+    --paper: #15140F;
+    --ink: #EDEAE0;
+    --muted: #9A968A;
+    --accent: #D8A04A;
+    --hairline: #2C2A22;
+    --highlight-bg: #26221626;
+  }
+  html[data-theme="dark"] .lens button.on {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  html[data-theme="dark"] body[data-lens="eng"] li[data-t~="eng"],
+  html[data-theme="dark"] body[data-lens="se"] li[data-t~="se"] {
+    background: #2A2415;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- Nav ---------- */
+  nav {
+    border-bottom: 1px solid var(--hairline);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 28px 0;
+  }
+  .wordmark {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .wordmark span { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .nav-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    color: var(--muted);
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s ease;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+  }
+  .theme-toggle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    background: transparent;
+    border: 1px solid var(--hairline);
+    border-radius: 2px;
+    color: var(--muted);
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .theme-toggle:hover { color: var(--ink); border-color: var(--muted); }
+
+  .nav-links a:focus-visible,
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  /* ---------- Page switching ---------- */
+  .page { display: none; }
+  .page.visible { display: block; }
+
+  /* ---------- Home ---------- */
+  .home-hero { padding: 96px 0 64px; }
+
+  h1 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: clamp(40px, 7vw, 56px);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: 28px;
+  }
+  h1 .accent { color: var(--accent); }
+
+  .intro {
+    font-size: 19px;
+    line-height: 1.7;
+    max-width: 58ch;
+    margin-bottom: 20px;
+  }
+  .intro-secondary {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 58ch;
+    margin-bottom: 48px;
+  }
+
+  .home-meta {
+    border-top: 1px solid var(--hairline);
+    padding-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .meta-item .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .meta-item .value {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .meta-item a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline);
+    transition: border-color 0.15s ease;
+  }
+  .meta-item a:hover { border-bottom-color: var(--accent); }
+
+  .home-cta {
+    margin-top: 64px;
+    padding-bottom: 96px;
+  }
+  .home-cta a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .home-cta a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+  /* ---------- Experience ---------- */
+  .exp-header { padding: 72px 0 8px; }
+  .exp-header h2 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 34px;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .exp-header p {
+    color: var(--muted);
+    max-width: 56ch;
+    margin-bottom: 36px;
+  }
+
+  /* Lens toggle — the signature */
+  .lens {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1px solid var(--hairline);
+    border-radius: 2px;
+    width: fit-content;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+  .lens-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    padding: 8px 14px;
+    border-right: 1px solid var(--hairline);
+    background: var(--paper);
+  }
+  .lens button {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    padding: 8px 16px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+  .lens button:hover { color: var(--ink); }
+  .lens button.on {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .lens-hint {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 48px;
+  }
+
+  /* Roles */
+  .role {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 32px;
+    padding: 40px 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .role-when {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    padding-top: 4px;
+  }
+  .role h3 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+  }
+  .role .org {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .role ul { list-style: none; }
+  .role li {
+    position: relative;
+    padding: 3px 6px 3px 20px;
+    margin-left: -6px;
+    font-size: 15.5px;
+    line-height: 1.6;
+    border-radius: 2px;
+    transition: opacity 0.2s ease, background 0.2s ease;
+  }
+  .role li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  /* Lens states */
+  body[data-lens="eng"] li:not([data-t~="eng"]),
+  body[data-lens="se"] li:not([data-t~="se"]) {
+    opacity: 0.32;
+  }
+  body[data-lens="eng"] li[data-t~="eng"],
+  body[data-lens="se"] li[data-t~="se"] {
+    background: var(--highlight-bg);
+  }
+
+  .role-tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--hairline);
+    border-radius: 2px;
+    padding: 2px 8px;
+  }
+
+  /* Education + footer of resume */
+  .exp-section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 48px 0 16px;
+  }
+  .edu {
+    border-top: 1px solid var(--hairline);
+    padding: 24px 0;
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 32px;
+  }
+  .edu .school { font-weight: 600; font-size: 16px; }
+  .edu .degree { color: var(--muted); font-size: 15px; }
+
+  .resume-dl {
+    margin: 56px 0 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--hairline);
+  }
+  .resume-dl a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .resume-dl a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+  /* ---------- Portfolio stub ---------- */
+  /* ---------- Portfolio ---------- */
+  .project {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 32px;
+    padding: 36px 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .project.hidden { display: none; }
+  .project h3 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+  }
+  .project .org {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .project ul { list-style: none; }
+  .project li {
+    position: relative;
+    padding: 3px 0 3px 20px;
+    font-size: 15.5px;
+    line-height: 1.6;
+  }
+  .project li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  @media (max-width: 600px) {
+    .project { grid-template-columns: 1fr; gap: 8px; }
+  }
+
+  .stub { padding: 96px 0; color: var(--muted); }
+
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 32px 0 48px;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .footer-inner a { color: var(--muted); text-decoration: none; }
+  .footer-inner a:hover { color: var(--ink); }
+
+  @media (max-width: 600px) {
+    .home-meta { grid-template-columns: 1fr; gap: 20px; }
+    .role, .edu { grid-template-columns: 1fr; gap: 8px; }
+    .role-when { padding-top: 0; }
+    .home-hero { padding: 64px 0 48px; }
+    .lens { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body data-lens="all">
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="#home" class="wordmark" onclick="go('home');return false;">sol<span>.</span>jin</a>
+    <div class="nav-links">
+      <a href="#home" id="nav-home" class="active" onclick="go('home');return false;">home</a>
+      <a href="#portfolio" id="nav-portfolio" onclick="go('portfolio');return false;">portfolio</a>
+      <a href="#experience" id="nav-experience" onclick="go('experience');return false;">experience</a>
+      <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">☾</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HOME ================= -->
+<main id="page-home" class="page visible">
+  <div class="wrap">
+    <section class="home-hero">
+      <h1>Engineer who sells.<br>Seller who ships<span class="accent">.</span></h1>
+      <p class="intro">
+        I'm Sol — a software engineer in New York City. I've spent my career moving between
+        building products and sitting across from the customer: full stack engineering at
+        MIRROR (Lululemon) and Blackboard, solutions engineering at TripleLift, and independent
+        consulting building AI systems for real businesses.
+      </p>
+      <p class="intro-secondary">
+        Right now I run Banchan Studio, a consulting practice building small tools for small and mid-size businesses,
+        and I build retrieval and automation systems for clients. I'm most useful where the
+        technical work and the customer conversation are the same job.
+      </p>
+
+      <div class="home-meta">
+        <div class="meta-item">
+          <span class="label">Currently</span>
+          <span class="value">AI consulting &amp; contract engineering — RAG systems, automation, product builds</span>
+        </div>
+        <div class="meta-item">
+          <span class="label">Based in</span>
+          <span class="value">Queens, NYC</span>
+        </div>
+        <div class="meta-item">
+          <span class="label">Contact</span>
+          <span class="value"><a href="mailto:hello@soljin.io">hello@soljin.io</a><br><a href="https://linkedin.com/in/soljin" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/soljin" target="_blank" rel="noopener">GitHub</a></span>
+        </div>
+      </div>
+
+      <div class="home-cta">
+        <a href="#experience" onclick="go('experience');return false;">See experience →</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- ================= EXPERIENCE ================= -->
+<main id="page-experience" class="page">
+  <div class="wrap">
+    <header class="exp-header">
+      <h2>Experience</h2>
+      <p>
+        My path crosses engineering, sales, and independent contracting — on purpose.
+        Use the lens to see this page the way it's relevant to you.
+      </p>
+      <div class="lens" role="group" aria-label="View experience through a lens">
+        <span class="lens-label">lens</span>
+        <button class="on" data-lens="all" onclick="setLens('all', this)">all</button>
+        <button data-lens="eng" onclick="setLens('eng', this)">engineer</button>
+        <button data-lens="se" onclick="setLens('se', this)">sales engineer</button>
+      </div>
+      <p class="lens-hint">highlights what's relevant — nothing is hidden</p>
+    </header>
+
+    <article class="role">
+      <div class="role-when">2023 — Present</div>
+      <div>
+        <h3>Founder &amp; Consultant</h3>
+        <p class="org">Banchan Studio — small tools, better business, for small &amp; mid-size companies</p>
+        
+        <strong style="display: block; margin: 16px 0 8px; font-size: 15px; color: var(--ink);">Client Projects</strong>
+        <ul>
+          <li data-t="eng se">Azuri (sustainability consultancy): Built production RAG platform using Pinecone, Anthropic API, and custom namespace-per-project architecture; redesigned azuri.io (dark cinematic, Newsreader serif, brass-toned palette)</li>
+          <li data-t="eng">Legacy Platform (streaming service): Generated client proposal and pitch deck using Python and ReportLab</li>
+          <li data-t="eng se">Snorkel AI: Prompt evaluation and human feedback infrastructure work</li>
+          <li data-t="se">Discover I AM: Business scoping and technical consulting</li>
+        </ul>
+
+        <strong style="display: block; margin: 16px 0 8px; font-size: 15px; color: var(--ink);">Business &amp; Sales Tools</strong>
+        <ul>
+          <li data-t="se eng">Built Python lead-finder pipeline using Google Places API for field service prospecting — automated discovery, qualification, and contact enrichment</li>
+          <li data-t="eng">ApplyAI: Job application assistant with Claude API and automated resume tailoring</li>
+          <li data-t="eng">Gmail-to-Sheets job tracker: Apps Script pipeline syncing applications and responses</li>
+          <li data-t="eng">Job application automation: End-to-end pipeline with Claude API resume tailoring and WeasyPrint PDF generation</li>
+          <li data-t="se">Cold outreach infrastructure: Prospecting workflows, discovery templates, and proposal frameworks for SMB consulting</li>
+        </ul>
+
+        <strong style="display: block; margin: 16px 0 8px; font-size: 15px; color: var(--ink);">Core Work</strong>
+        <ul>
+          <li data-t="se">Run the full sales cycle solo — prospecting, discovery, scoping, proposals, negotiation, and delivery</li>
+          <li data-t="se">Translate ambiguous business problems into scoped technical engagements for non-technical owners — audits, roadmaps, and fixed-scope builds</li>
+          <li data-t="eng">End-to-end engineering across web apps, automation pipelines, PDF generation, and API integrations</li>
+        </ul>
+
+        <div class="role-tags">
+          <span class="tag">engineering</span><span class="tag">sales</span><span class="tag">contracting</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="role">
+      <div class="role-when">2021 — 2022</div>
+      <div>
+        <h3>Software Engineer</h3>
+        <p class="org">MIRROR / Lululemon Studio — connected fitness ecommerce</p>
+        <ul>
+          <li data-t="eng">Full stack engineering on the ecommerce platform through Lululemon's acquisition and scale-up</li>
+          <li data-t="eng">Core engineer on the Canada market expansion — internationalization, tax, and checkout flows</li>
+          <li data-t="eng se">Contributed to the Spree-to-Shopify migration, balancing engineering tradeoffs with business and merchandising stakeholders</li>
+        </ul>
+        <div class="role-tags"><span class="tag">engineering</span></div>
+      </div>
+    </article>
+
+    <article class="role">
+      <div class="role-when">2019 — 2021</div>
+      <div>
+        <h3>Software Engineer</h3>
+        <p class="org">Blackboard</p>
+        <ul>
+          <li data-t="eng">Full stack development across web applications serving institutional customers</li>
+          <li data-t="eng se">Worked directly with customer-facing teams to turn support escalations and client requests into shipped features</li>
+        </ul>
+        <div class="role-tags"><span class="tag">engineering</span></div>
+      </div>
+    </article>
+
+    <article class="role">
+      <div class="role-when">2017 — 2019</div>
+      <div>
+        <h3>Solutions Engineer</h3>
+        <p class="org">TripleLift — programmatic advertising</p>
+        <ul>
+          <li data-t="se">Technical lead on DSP and publisher integrations — the engineer in the room for pre-sales, onboarding, and escalations</li>
+          <li data-t="se eng">Owned the Dynamic Creative Optimization (DCO) feature area, bridging product, engineering, and revenue teams</li>
+          <li data-t="se">Ran technical discovery and demos with enterprise ad-tech partners; translated client requirements into engineering specs</li>
+        </ul>
+        <div class="role-tags"><span class="tag">sales engineering</span></div>
+      </div>
+    </article>
+
+    <article class="role">
+      <div class="role-when">Earlier</div>
+      <div>
+        <h3>Technical Recruiter → Engineer</h3>
+        <p class="org">Career origin</p>
+        <ul>
+          <li data-t="se">Started in technical recruiting — learned to qualify, pitch, and close before learning to code</li>
+          <li data-t="eng">Made the jump to engineering through intensive retraining, then a decade of shipping</li>
+        </ul>
+        <div class="role-tags"><span class="tag">sales</span></div>
+      </div>
+    </article>
+
+    <div class="exp-section-label">Education</div>
+    <div class="edu">
+      <div class="role-when">M.S.</div>
+      <div>
+        <div class="school">Georgia Institute of Technology</div>
+        <div class="degree">M.S. Computer Science (OMSCS) — systems &amp; parallel computing coursework</div>
+      </div>
+    </div>
+    <div class="edu">
+      <div class="role-when">B.A.</div>
+      <div>
+        <div class="school">Syracuse University</div>
+        <div class="degree">B.A. Psychology, minors in Mathematics &amp; Philosophy — Dean's List</div>
+      </div>
+    </div>
+    <div class="edu">
+      <div class="role-when">Cert.</div>
+      <div>
+        <div class="school">NYU Tandon</div>
+        <div class="degree">Bridge to Tandon — computer science foundations</div>
+      </div>
+    </div>
+
+    <div class="resume-dl">
+      <a href="/resume.pdf">Download resume (PDF) ↓</a>
+    </div>
+  </div>
+</main>
+
+<!-- ================= PORTFOLIO ================= -->
+<main id="page-portfolio" class="page">
+  <div class="wrap">
+    <header class="exp-header">
+      <h2>Portfolio</h2>
+      <p>Selected projects — client work, products, and internal tools.</p>
+      <div class="lens" role="group" aria-label="Filter projects">
+        <span class="lens-label">filter</span>
+        <button class="on" data-f="all" onclick="setFilter('all', this)">all</button>
+        <button data-f="ai" onclick="setFilter('ai', this)">ai &amp; ml</button>
+        <button data-f="fullstack" onclick="setFilter('fullstack', this)">full stack</button>
+        <button data-f="automation" onclick="setFilter('automation', this)">automation</button>
+        <button data-f="client" onclick="setFilter('client', this)">client work</button>
+      </div>
+      <p class="lens-hint">&nbsp;</p>
+    </header>
+
+    <article class="project" data-c="ai client">
+      <div class="role-when">RAG · Client</div>
+      <div>
+        <h3>Azuri Knowledge Platform</h3>
+        <p class="org">Production RAG system for a sustainability consultancy</p>
+        <ul>
+          <li>Retrieval pipeline on Pinecone (llama-text-embed-v2) with the Anthropic API — fixed-size chunking with overlap across ~11 source documents</li>
+          <li>Namespace-per-project architecture so one core serves multiple client engagements</li>
+          <li>Also redesigned azuri.io — dark cinematic direction, Newsreader serif, brass palette</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project" data-c="ai client">
+      <div class="role-when">RAG · Client</div>
+      <div>
+        <h3>Bible Study Bot</h3>
+        <p class="org">Conversational study assistant</p>
+        <ul>
+          <li>Retrieval-grounded Q&amp;A over scripture and study materials, built on the reusable Banchan retrieval core</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project" data-c="automation client">
+      <div class="role-when">Automation · Client</div>
+      <div>
+        <h3>Farm Invoicing System</h3>
+        <p class="org">Back-office automation for a small agricultural business</p>
+        <ul>
+          <li>Replaced a manual invoicing workflow with an automated pipeline — order intake through PDF invoice generation</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project" data-c="ai automation client">
+      <div class="role-when">AI · Client</div>
+      <div>
+        <h3>Field Services Intake</h3>
+        <p class="org">Lead intake and qualification for field service businesses</p>
+        <ul>
+          <li>Automated intake flow that captures, qualifies, and routes inbound customer requests for owner-operated service companies</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project" data-c="fullstack client">
+      <div class="role-when">Web · Client</div>
+      <div>
+        <h3>The Bsmt. Training Club</h3>
+        <p class="org">Website for a Woodside, Queens gym</p>
+        <ul>
+          <li>Designed and built the gym's site end to end — brand, layout, and launch</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project" data-c="ai fullstack">
+      <div class="role-when">AI · Product</div>
+      <div>
+        <h3>ApplyAI</h3>
+        <p class="org">Resume tailoring web app</p>
+        <ul>
+          <li>Claude API-powered app that tailors a master resume to a specific job description — role-tagged bullet system (master_resume.json) with generated PDF output</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project" data-c="automation">
+      <div class="role-when">Automation · Sales</div>
+      <div>
+        <h3>Leadfinder</h3>
+        <p class="org">Prospecting pipeline on the Google Places API</p>
+        <ul>
+          <li>Python scraper that discovers and qualifies owner-operated field service businesses (15–200 reviews) for cold outreach — discovery, filtering, and contact enrichment</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project" data-c="automation">
+      <div class="role-when">Automation</div>
+      <div>
+        <h3>Job Application Tracker</h3>
+        <p class="org">Gmail-to-Sheets pipeline</p>
+        <ul>
+          <li>Apps Script pipeline that syncs applications and responses from Gmail into a live tracking sheet</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project" data-c="fullstack">
+      <div class="role-when">Full stack</div>
+      <div>
+        <h3>Frequence</h3>
+        <p class="org">Spotify playlist generator from rave setlists</p>
+        <ul>
+          <li>Turns DJ setlists into Spotify playlists — track matching and playlist creation via the Spotify API</li>
+        </ul>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© 2026 Sol Jin</span>
+    <span><a href="mailto:hello@soljin.io">hello@soljin.io</a></span>
+  </div>
+</footer>
+
+<script>
+  function go(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('visible'));
+    document.getElementById('page-' + page).classList.add('visible');
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById('nav-' + page).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+  // Default to system preference
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+  syncToggleIcon();
+
+  function toggleTheme() {
+    const root = document.documentElement;
+    const dark = root.getAttribute('data-theme') === 'dark';
+    if (dark) { root.removeAttribute('data-theme'); }
+    else { root.setAttribute('data-theme', 'dark'); }
+    syncToggleIcon();
+  }
+  function syncToggleIcon() {
+    const btn = document.getElementById('theme-toggle');
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    btn.textContent = dark ? '☀' : '☾';
+    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+  function setLens(lens, btn) {
+    document.body.setAttribute('data-lens', lens);
+    document.querySelectorAll('.lens button').forEach(b => {
+      if (b.hasAttribute('data-lens')) b.classList.remove('on');
+    });
+    btn.classList.add('on');
+  }
+  function setFilter(f, btn) {
+    document.querySelectorAll('.project').forEach(p => {
+      const cats = (p.getAttribute('data-c') || '').split(' ');
+      p.classList.toggle('hidden', f !== 'all' && !cats.includes(f));
+    });
+    document.querySelectorAll('.lens button[data-f]').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+  }
+</script>
+</body>
+</html>
